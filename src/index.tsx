@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { App } from './components/App';
 import * as serviceWorker from './serviceWorker';
+import { QueryCache, ReactQueryCacheProvider } from 'react-query';
+
+import 'milligram';
+
+const queryCache = new QueryCache();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ReactQueryCacheProvider queryCache={queryCache}>
+      <App />
+    </ReactQueryCacheProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
